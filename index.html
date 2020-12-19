@@ -26,10 +26,12 @@
         <div class="col-md-3 left-column">
           <input type="text" id="userCity" placeholder="Enter City"/>
         </br>
+        <form>
             <div class="left-buttons">
-            <button id="searchBtn">Search</button>
-            <button id="clearBtn">Clear History</button>
+                <button id="searchBtn">Search</button>
+                <button id="clearBtn">Clear History</button>
             </div>
+        </form>
         </div>
         <!-- Right Column: Display weather -->
         <div class="col-md-9 right-column">
@@ -37,17 +39,8 @@
           <!-- Row 1: Current weather -->
           <div class="row" id="current-weather-row">
             <!-- Column for current weather -->
-            <div class="col-md-12">
-              <!-- date -->
-              <p class="current-city" id="city-date">City</p>
-              <!-- temperature -->
-              <p class="current-city" id="temperature">Temp</p>
-              <!-- humidity -->
-              <p class="current-city" id="humidity">Humidity</p>
-              <!-- wind  -->
-              <p class="current-city" id="windspeed">Wind</p>
-              <!-- UV index -->
-              <p class="current-city" id="uvindex">UVindex</p>
+            <div class="col-md-12" id="current-display">
+              
             </div>
           </div>
         </div>
