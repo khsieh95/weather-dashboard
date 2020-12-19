@@ -1,9 +1,11 @@
 body {
   background-color: pink;
+  margin-top: 3%;
 }
 
 .container {
   background-color: white;
+  margin-top: 2%;
 }
 
 .left-column {
@@ -13,4 +15,12 @@ body {
 h1 {
   margin: 0 auto;
   text-align: center;
+}
+
+#userCity {
+  margin-top: 3%;
+}
+
+.left-buttons {
+  margin-top: 2%;
 }

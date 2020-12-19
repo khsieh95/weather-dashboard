@@ -25,10 +25,35 @@
         <!-- Left Column: Search, clear, store -->
         <div class="col-md-3 left-column">
           <input type="text" id="userCity" />
-          <button class="search">Search</button>
-          <button class="clear">Clear History</button>
+        </br>
+            <div class="left-buttons">
+            <button id="searchBtn">Search</button>
+            <button id="clearBtn">Clear History</button>
+            </div>
         </div>
-        <div class="col-md-9 right-column"></div>
+        <!-- Right Column: Display weather -->
+        <div class="col-md-9 right-column">
+          <!-- 2 rows -->
+          <!-- Row 1: Current weather -->
+          <div class="row" id="current-weather-row">
+            <!-- Column for current weather -->
+            <div class="col-md-12">
+              <!-- date -->
+              <p class="current-city" id="city-date">City</p>
+              <!-- temperature -->
+              <p class="current-city" id="temperature">Temp</p>
+              <!-- humidity -->
+              <p class="current-city" id="humidity">Humidity</p>
+              <!-- wind  -->
+              <p class="current-city" id="windspeed">Wind</p>
+              <!-- UV index -->
+              <p class="current-city" id="uvindex">UVindex</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Future weather(5 days) -->
+        <div class="row" id="future-weather-row"></div>
       </div>
     </div>
     <!-- Link JQuery -->
