@@ -1,0 +1,16 @@
+body {
+  background-color: pink;
+}
+
+.container {
+  background-color: white;
+}
+
+.left-column {
+  border-right: solid 1px black;
+}
+
+h1 {
+  margin: 0 auto;
+  text-align: center;
+}
