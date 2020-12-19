@@ -1,5 +1,5 @@
 body {
-  background-color: pink;
+  background-color: lightgrey;
   margin-top: 3%;
 }
 
@@ -10,6 +10,10 @@ body {
 
 .left-column {
   border-right: solid 1px black;
+}
+
+.right-column {
+  margin-top: 5px;
 }
 
 h1 {
