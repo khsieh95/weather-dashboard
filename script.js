@@ -29,12 +29,12 @@ $.ajax({
 
   var cityTemp = $("<p>")
     .addClass("card-text")
-    .text("Temperature: " + response.main.temp);
+    .text("Temperature: " + response.main.temp + " F");
   cityName.append(cityImg);
 
   var cityWind = $("<p>")
     .addClass("card-text")
-    .text("Wind: " + response.wind.speed + "MPH");
+    .text("Wind: " + response.wind.speed + " MPH");
   var cityHumid = $("<p>")
     .addClass("card-text")
     .text("Humidity: " + response.main.humidity + "%");
@@ -46,18 +46,37 @@ $.ajax({
 
 //   QueryURL for UV index API
 var queryURL2 =
-  "https://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=122.3321&appid=" +
+  "https://api.openweathermap.org/data/2.5/uvi?lat=21.3069&lon=157.8583&appid=" +
   ApiKey;
 $.ajax({
   url: queryURL2,
   method: "GET",
 }).then(function (response) {
-  var cityUV = $("<p>")
-    .addClass("card-text")
-    .text("UV Index: " + response.value);
-  console.log(response);
+  var uvIndex = response.value;
+
+  //   Add content to card body for UV index
+  var cityUV = $("<p>").addClass("card-text").text("UV Index: ");
   $(".card-body").append(cityUV);
+  var uvDiv = $("<div>").addClass("uv-div");
+  uvDiv.append(uvIndex);
+  cityUV.append(uvDiv);
+  // Change color of background regarding UV index
+  if (uvDiv.val() > 3) {
+    uvDiv.attr("style", "background-color: green;");
+  } else if (uvDiv.val() < 3) {
+    uvDiv.attr("style", "background-color: yellow;");
+  }
+  //   if (uvDiv > 6) {
+  //     uvDiv.attr("style", "background-color: orange;");
+  //   }
+  //   if (uvDiv > 8) {
+  //     uvDiv.attr("style", "background-color: red;");
+  //   } else {
+  //     uvDiv.attr("style", "background-color: violet;");
+  //   }
+  console.log(response);
 });
+
 // Query URL for 5 day forecast
 var queryURL3 =
   "https://api.openweathermap.org/data/2.5/forecast?q=seattle&appid=" +
