@@ -26,11 +26,11 @@ $.ajax({
     "src",
     "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
   );
+  cityName.append(cityImg);
 
   var cityTemp = $("<p>")
     .addClass("card-text")
     .text("Temperature: " + response.main.temp + " F");
-  cityName.append(cityImg);
 
   var cityWind = $("<p>")
     .addClass("card-text")
@@ -57,23 +57,22 @@ $.ajax({
   //   Add content to card body for UV index
   var cityUV = $("<p>").addClass("card-text").text("UV Index: ");
   $(".card-body").append(cityUV);
-  var uvDiv = $("<span>").addClass("uv-span");
-  uvDiv.append(uvIndex);
-  cityUV.append(uvDiv);
+  var uvSpan = $("<span>").addClass("uv-span");
+  uvSpan.append(uvIndex);
+  cityUV.append(uvSpan);
+  console.log(uvIndex);
   // Change color of background regarding UV index
-  if (uvDiv.val() > 3) {
-    uvDiv.attr("style", "background-color: green;");
-  } else if (uvDiv.val() < 3) {
-    uvDiv.attr("style", "background-color: yellow;");
+  if (uvIndex < 3) {
+    uvSpan.attr("style", "background-color: green;");
+  } else if (uvIndex < 6) {
+    uvSpan.attr("style", "background-color: yellow;");
+  } else if (uvIndex < 8) {
+    uvSpan.attr("style", "background-color: orange;");
+  } else if (uvIndex < 11) {
+    uvSpan.attr("style", "background-color: red;");
+  } else {
+    uvSpan.attr("style", "background-color: violet;");
   }
-  //   if (uvDiv > 6 < 8) {
-  //     uvDiv.attr("style", "background-color: orange;");
-  //   }
-  //   if (uvDiv > 8 < 11) {
-  //     uvDiv.attr("style", "background-color: red;");
-  //   } else {
-  //     uvDiv.attr("style", "background-color: violet;");
-  //   }
   console.log(response);
 });
 
@@ -87,6 +86,7 @@ $.ajax({
   method: "GET",
 }).then(function (response) {
   console.log(response);
+  //   for (i = 0; i < list.length; i++) {}
 });
 
 // ****Note: make a form in html: DONE
