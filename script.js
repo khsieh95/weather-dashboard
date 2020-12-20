@@ -57,7 +57,7 @@ $.ajax({
   //   Add content to card body for UV index
   var cityUV = $("<p>").addClass("card-text").text("UV Index: ");
   $(".card-body").append(cityUV);
-  var uvDiv = $("<div>").addClass("uv-div");
+  var uvDiv = $("<span>").addClass("uv-span");
   uvDiv.append(uvIndex);
   cityUV.append(uvDiv);
   // Change color of background regarding UV index
@@ -66,10 +66,10 @@ $.ajax({
   } else if (uvDiv.val() < 3) {
     uvDiv.attr("style", "background-color: yellow;");
   }
-  //   if (uvDiv > 6) {
+  //   if (uvDiv > 6 < 8) {
   //     uvDiv.attr("style", "background-color: orange;");
   //   }
-  //   if (uvDiv > 8) {
+  //   if (uvDiv > 8 < 11) {
   //     uvDiv.attr("style", "background-color: red;");
   //   } else {
   //     uvDiv.attr("style", "background-color: violet;");
