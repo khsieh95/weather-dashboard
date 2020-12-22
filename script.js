@@ -8,6 +8,8 @@ var ApiKey = "70b8914b760b61aadf8e4a8421d53345";
 
 searchBtn.on("click", function (event) {
   event.preventDefault();
+  $("#current-display").empty();
+  $("#future-weather-row").empty();
   var userInput = $("#userCity").val();
   console.log(userInput);
 
@@ -106,6 +108,8 @@ searchBtn.on("click", function (event) {
     method: "GET",
   }).then(function (response) {
     console.log(response);
+    var forecastHeader = $("<h2>").text("5-Day Forecast");
+    $("#future-weather-row").append(forecastHeader);
     for (i = 0; i < response.list.length; i++) {
       if (response.list[i].dt_txt.indexOf("12:00:00") !== -1) {
         var forecastCard = $("<div>").addClass("card");
@@ -116,7 +120,7 @@ searchBtn.on("click", function (event) {
         var forecastImg = $("<img>").attr(
           "src",
           "http://openweathermap.org/img/w/" +
-            response.list[i].weather.icon +
+            response.list[i].weather[0].icon +
             ".png"
         );
         var forecastTemp = $("<p>")
