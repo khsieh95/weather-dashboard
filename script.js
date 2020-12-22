@@ -3,7 +3,6 @@
 // Step 2: Get working API key
 
 // Global Variables
-var currentDate = moment().format("MMM Do YY");
 var searchBtn = $("#searchBtn");
 var ApiKey = "70b8914b760b61aadf8e4a8421d53345";
 
