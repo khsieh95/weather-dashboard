@@ -36,3 +36,10 @@ h1 {
 .uv-div {
   text-align: center;
 }
+
+#future-weather-row {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
