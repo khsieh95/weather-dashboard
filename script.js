@@ -146,4 +146,14 @@ searchBtn.on("click", function (event) {
   // ****Note: make a form in html: DONE
 
   getWeather();
+
+  //   Create new buttons for cities
+  var userHistory = [];
+  userHistory.push(userInput);
+  for (i = 0; i < userHistory.length; i++) {
+    var cityButton = $("<button>")
+      .addClass("city-buttons")
+      .text(userHistory[i]);
+    $("#search-history").prepend(cityButton);
+  }
 });
