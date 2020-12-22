@@ -4,13 +4,13 @@
 
 // Global Variables
 var searchBtn = $("#searchBtn");
+var clearBtn = $("#clearBtn");
 var ApiKey = "70b8914b760b61aadf8e4a8421d53345";
 
 searchBtn.on("click", function (event) {
   event.preventDefault();
   $("#current-display").empty();
   $("#future-weather-row").empty();
-
   var userInput = $("#userCity").val();
   console.log(userInput);
 
@@ -159,4 +159,10 @@ searchBtn.on("click", function (event) {
   }
 
   $("#userCity").empty().val("");
+});
+
+// Button function clears search history
+clearBtn.on("click", function (event) {
+  event.preventDefault();
+  $("#search-history").empty();
 });
