@@ -10,6 +10,7 @@ searchBtn.on("click", function (event) {
   event.preventDefault();
   $("#current-display").empty();
   $("#future-weather-row").empty();
+
   var userInput = $("#userCity").val();
   console.log(userInput);
 
@@ -156,4 +157,6 @@ searchBtn.on("click", function (event) {
       .text(userHistory[i]);
     $("#search-history").prepend(cityButton);
   }
+
+  $("#userCity").empty().val("");
 });
