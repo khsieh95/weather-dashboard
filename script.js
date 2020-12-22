@@ -6,6 +6,8 @@
 var searchBtn = $("#searchBtn");
 var clearBtn = $("#clearBtn");
 var ApiKey = "70b8914b760b61aadf8e4a8421d53345";
+var historyList = JSON.parse(localStorage.getItem("historyList") || "[]");
+var userHistory = [];
 
 searchBtn.on("click", function (event) {
   event.preventDefault();
@@ -33,7 +35,7 @@ searchBtn.on("click", function (event) {
         var longEl = data.coord.lon;
         var latEl = data.coord.lat;
 
-        var currentWeather = $("<div>").addClass("card");
+        var currentWeather = $("<div>").addClass("card current-weather");
         var currentWeatherBody = $("<div>").addClass("card-body");
         var cityName = $("<h1>").addClass("card-text").text(data.name);
         var cityImg = $("<img>").attr(
@@ -149,15 +151,19 @@ searchBtn.on("click", function (event) {
   getWeather();
 
   //   Create new buttons for cities
-  var userHistory = [];
+  // var userHistory = [];
   userHistory.push(userInput);
   for (i = 0; i < userHistory.length; i++) {
     var cityButton = $("<button>")
       .addClass("city-buttons")
       .text(userHistory[i]);
-    $("#search-history").prepend(cityButton);
   }
+  $("#search-history").prepend(cityButton);
 
+  // Local storage
+  localStorage.setItem(historyList, JSON.stringify(userHistory));
+
+  // Empty user input box
   $("#userCity").empty().val("");
 });
 
@@ -165,4 +171,5 @@ searchBtn.on("click", function (event) {
 clearBtn.on("click", function (event) {
   event.preventDefault();
   $("#search-history").empty();
+  localStorage.clear();
 });

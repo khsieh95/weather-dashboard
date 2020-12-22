@@ -23,16 +23,27 @@ h1 {
 
 #userCity {
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 9%;
   margin-bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.left-buttons {
+/* .left-buttons {
   padding-bottom: 5%;
   display: flex;
   justify-content: center;
+} */
+
+#searchBtn {
+  width: 35%;
+  margin-right: 5px;
+  margin-bottom: 9%;
+}
+
+#clearBtn {
+  width: 61.99%;
 }
 
 .card-text {
@@ -54,4 +65,12 @@ h1 {
   width: 100%;
   padding: 3px;
   margin-top: 2%;
+}
+
+.card {
+  background-color: lightblue;
+}
+
+.current-weather {
+  background-color: white;
 }
