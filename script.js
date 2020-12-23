@@ -7,13 +7,18 @@ var searchBtn = $("#searchBtn");
 var clearBtn = $("#clearBtn");
 var ApiKey = "70b8914b760b61aadf8e4a8421d53345";
 var historyList = JSON.parse(localStorage.getItem("historyList") || "[]");
+
 var userHistory = [];
+
+generateBtn(historyList);
 
 searchBtn.on("click", function (event) {
   event.preventDefault();
   $("#current-display").empty();
   $("#future-weather-row").empty();
   var userInput = $("#userCity").val();
+  userHistory.push(userInput);
+  generateBtn(userHistory);
   console.log(userInput);
 
   // QueryURL for first weather API
@@ -150,21 +155,26 @@ searchBtn.on("click", function (event) {
 
   getWeather();
 
-  //   Create new buttons for cities
-  // var userHistory = [];
-  userHistory.push(userInput);
-  for (i = 0; i < userHistory.length; i++) {
-    var cityButton = $("<button>")
-      .addClass("city-buttons")
-      .text(userHistory[i]);
-  }
-  $("#search-history").prepend(cityButton);
-
   // Local storage
-  localStorage.setItem(historyList, JSON.stringify(userHistory));
+  localStorage.setItem("historyList", JSON.stringify(userHistory));
 
   // Empty user input box
   $("#userCity").empty().val("");
+});
+
+// Create new buttons for cities
+function generateBtn(cityList) {
+  $("#search-history").empty();
+  for (i = 0; i < cityList.length; i++) {
+    var cityButton = $("<button>").addClass("city-buttons").text(cityList[i]);
+    $("#search-history").prepend(cityButton);
+  }
+}
+
+// City buttons update content
+$(document).on("click", ".city-buttons", function () {
+  var cityText = $(this).text();
+  getWeather(cityText);
 });
 
 // Button function clears search history
