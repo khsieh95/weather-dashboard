@@ -1,6 +1,6 @@
 # weather-dashboard
 
-![Screen Shot 2020-12-22 at 5 01 45 PM (2)](https://user-images.githubusercontent.com/74025123/102947186-9a922c80-4477-11eb-97f7-5a18b7815c8b.png)
+<img width="1440" alt="Screen Shot 2020-12-22 at 5 17 59 PM" src="https://user-images.githubusercontent.com/74025123/102948050-cadaca80-4479-11eb-8312-b45f19564f18.png">
 
 Deployment Link: https://khsieh95.github.io/weather-dashboard/
 
