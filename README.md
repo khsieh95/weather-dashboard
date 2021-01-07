@@ -20,3 +20,10 @@ Created a weather app, that is designed to take the user's input (city) and disp
 ### What I could do
 
 - Try to make the history buttons functional
+
+#### Contact
+
+- Feel free to reach out to me at:
+  - khsieh95@gmail.com
+  - [Github](https://github.com/khsieh95)
+  - [LinkedIn](https://www.linkedin.com/in/kevinwjhsieh/)
